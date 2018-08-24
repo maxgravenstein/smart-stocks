@@ -1,9 +1,10 @@
 # stock-analysis
 
 ## Purpose
-*To analyze stocks, cryptocurrencies, and other things on a market in a smart way
+* To analyze stocks, _cryptocurrencies_, and other things on a market in a **smart** way
 
 ## Whatever, man
-*This is weak sauce, so probably don't ask to contribute
-**Do something better with your life
-***Nah mean.
+* This is my first **githubian** attempt
+* So probably don't ask to contribute
+* Spend your time in better ways.
+* **Nah** mean.
