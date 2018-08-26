@@ -1,14 +1,25 @@
 import datetime as dt
 import matplotlib.pyplot as plt
 import matplotlib.dates as mdates
+import csv
 
-dates = ['2010-7-19', '2010-7-20', '2010-7-21', '2010-7-22', '2010-7-23']
-x = [dt.datetime.strptime(d, '%Y-%m-%d').date() for d in dates]
-y = range(len(dates))
-#plt.plot(x,y)
+with open('bitcoin.csv') as file:
+    count = 0
+    reader = csv.reader(file)
+    next(reader, None) #skip the headers
 
-plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
-plt.plot(x,y)
-plt.gcf().autofmt_xdate()
+    for row in reader:
+        x = dt.datetime.strptime(row[0][0:10], '%Y-%m-%d').date()
+        y = float(row[1])
+
+        plt.gca().xaxis.set_major_formatter(mdates.DateFormatter('%Y-%m-%d'))
+        plt.gca().xaxis.set_major_locator(mdates.DayLocator())
+
+        plt.plot(x,y,'bo')
+        plt.gcf().autofmt_xdate()
+
+        if count > 100:
+            break
+        count +=1
+
 plt.show()
-#print(x,y)
